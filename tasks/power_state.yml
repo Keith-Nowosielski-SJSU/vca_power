@@ -1,0 +1,14 @@
+---
+
+- name: POWER STATE | "{{ power_state }}"
+  community.vmware.vmware_guest_powerstate:
+      hostname: "{{ vsphere_hostname }}"
+      username: "{{ vsphere_username }}"
+      password: "{{ vsphere_password }}"
+      datacenter: "{{ vca_datacenter }}"
+      folder: "{{vca_datacenter}}/vm"
+      name: "{{ name }}"
+      state: "{{ power_state }}"
+      validate_certs: "{{ vsphere_cert_validate }}"
+  delegate_to: localhost
+  connection: local

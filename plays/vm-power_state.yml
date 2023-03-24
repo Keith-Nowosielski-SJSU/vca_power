@@ -1,0 +1,9 @@
+---
+
+- name: VM Power State
+  hosts: "{{ host_grp }}"
+  become: false
+  gather_facts: false
+  order: sorted
+  roles: 
+    - vca_power

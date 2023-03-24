@@ -1,0 +1,19 @@
+---
+
+- name: Check vsphere group 1
+  set_fact: 
+      vca_datacenter: "{{ datacenter_1 }}"
+      vsphere_hostname: "{{ hostname_1 }}"
+  when: inventory_hostname not in groups['{{ vca_grp2 }}']
+
+- name: Check vsphere group 2
+  set_fact: 
+      vca_datacenter: "{{ datacenter_2 }}"
+      vsphere_hostname: "{{ hostname_2 }}"
+  when: inventory_hostname in groups['{{ vca_grp2 }}'] and inventory_hostname not in groups['{{ vca_grp3 }}']
+
+- name: Check vsphere group 3
+  set_fact: 
+      vca_datacenter: "{{ datacenter_3 }}"
+      vsphere_hostname: "{{ hostname_3 }}"
+  when: inventory_hostname in groups['{{ vca_grp3 }}']
