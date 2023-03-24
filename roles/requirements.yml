@@ -3,4 +3,4 @@
 roles: 
   - src: git+git@github.com:Keith-Nowosielski-SJSU/vca_power.git
     name: vca_power
-    version: dev
+    version: devel
